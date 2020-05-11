@@ -1,10 +1,7 @@
-const users=require('../models/user');
 const profile=require('../models/profile')
-const ratings=require('../models/rating');
-const recentview=require('../models/recentview');
-const recentviewtest=require('../models/recentviewtest');
+
 const mongoose=require('mongoose');
-const nodemailer=require('nodemailer');
+
 const bodyParser = require('body-parser');
 const express=require('express'); 
 const app=express();
