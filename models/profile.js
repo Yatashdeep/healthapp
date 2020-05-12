@@ -4,6 +4,7 @@ const profileSchema=mongoose.Schema({
     first_name:{type:String,required:true,minlength:3,maxlength:15,trim:true},
     last_name:{type:String,required:true,minlength:3,maxlength:15,trim:true},
     full_address:{type:String,required:true,minlength:3,maxlength:15,trim:true},
+    zip_code:{type:String,required:true,minlength:3,maxlength:15,trim:true},
     telephone_number:{type:String,required:true,minlength:3,maxlength:15,trim:true},
     Date_of_birth:{type:String,required:true,minlength:3,maxlength:15,trim:true},
     Sex:{type:String,required:true,minlength:3,maxlength:15,trim:true},
