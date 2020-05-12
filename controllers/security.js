@@ -103,12 +103,15 @@ exports.update_profile=(req,res,next)=>{
         doc.Additional_notes=req.body.Additional_notes,
         doc.Primary_physician=req.body.Primary_physician,
         doc.Additional_contacts=req.body.Additional_contacts,
-        doc.save(); 
-        profile.find({_id:req.body.userid}).exec().then(user=>{
-            return res.status(200).json({ message:"Your profile updated successfully.",getdata:user,status:1 });
-       }).catch(err=>{
-            return res.status(200).json({ message:"Your profile updated successfully.",getdata:err,status:0 });
-       })  
+         doc.save().then(
+            (result)=>{
+              
+                    return res.status(200).json({ message:"Your Profile updated successfully",getdata:result,status:1 });
+          
+            }
+        ).catch(err=>{
+            return res.status(200).json({ message:"Your Profile updated successfully.",getdata:err,status:0 });
+        })  
     }).catch(err=>{
         return res.status(200).json({ message:"Please try again later",status:0  }); 
     })
