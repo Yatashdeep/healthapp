@@ -78,6 +78,40 @@ profile.find().exec().then(data=>{
          });
 })
 }
+exports.update_profile=(req,res,next)=>{
+    profile.findOne({_id:req.body.userid}).exec().then(doc=>{
+        doc.first_name=req.body.first_name,
+        doc.last_name=req.body.last_name,
+        doc.full_address=req.body.full_address
+        doc.zip_code=req.body.zip_code
+        doc.telephonenumber=req.body.telephone_number,
+        doc.Date_of_birth=req.body.Date_of_birth,
+        doc.Sex=req.body.Sex,
+        doc.Blood_group=req.body.Blood_group,
+        doc.Height=req.body.Height,
+        doc.Weight=req.body.Weight,
+        doc.Organ_donor=req.body.Organ_donor,
+        doc.Covid_tested=req.body.Covid_tested,
+        doc.Covid_condition=req.body.Covid_condition,
+        doc.Covid_date=req.body.Covid_date,
+        doc.Allergies=req.body.Allergies,
+        doc.Medications=req.body.Medications,
+        doc.Prior_surgeries=req.body.Prior_surgeries,
+        doc.Medical_conditions=req.body.Medical_conditions
+        doc.Additional_notes=req.body.Additional_notes,
+        doc.Primary_physician=req.body.Primary_physician,
+        doc.Additional_contacts=req.body.Additional_contacts,
+        doc.save(); 
+        profile.find({_id:req.body.userid}).exec().then(user=>{
+            return res.status(200).json({ message:"Your profile updated successfully.",getdata:user,status:1 });
+       }).catch(err=>{
+            return res.status(200).json({ message:"Your profile updated successfully.",getdata:err,status:0 });
+       })  
+    }).catch(err=>{
+        return res.status(200).json({ message:"Please try again later",status:0  }); 
+    })
+
+}
 
 
 
