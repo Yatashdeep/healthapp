@@ -34,6 +34,7 @@ else
        first_name:req.body.first_name,
        last_name:req.body.last_name,
        full_address:req.body.full_address,
+       zip_code:req.body.zip_code, 
        telephone_number:req.body.telephone_number,
        Date_of_birth:req.body.Date_of_birth,
        Sex:req.body.Sex,
