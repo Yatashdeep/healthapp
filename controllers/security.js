@@ -108,14 +108,14 @@ exports.update_profile=(req,res,next)=>{
          doc.save().then(
             (result)=>{
               
-                    return res.status(200).json({ message:"Your Profile updated successfully",getdata:result,status:1 });
+                    return res.status(200).json({ message:"Your Profile updated successfully",result:result, Success:true });
           
             }
         ).catch(err=>{
-            return res.status(200).json({ message:"Your Profile updated successfully.",getdata:err,status:0 });
+            return res.status(200).json({ message:"Your Profile updated successfully.",result:err, Success:true });
         })  
     }).catch(err=>{
-        return res.status(200).json({ message:"Please try again later",status:0  }); 
+        return res.status(200).json({ message:"Please try again later",result:err,Success:true  }); 
     })
 
 }
