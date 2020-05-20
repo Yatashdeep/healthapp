@@ -119,6 +119,18 @@ exports.update_profile=(req,res,next)=>{
     })
 
 }
+exports.add_contact=(req,res,next)=>{
+    profile.findOne({_id:req.body.userid}).exec().then(data=>{
+        data.add_contact=req.body.add_contact
+        data.save().then((result)=>{
+        return res.status(200).json({message:'Contact Updated Successfully',Status:true,data:result})
+        }).catch(err=>{
+        return res.status(200).json({message:"Error",Status:false,data:err})
+        })
+    }).catch(err=>{
+        return res.status(200).json({message:"Error",Status:false,data:err})
+    })
+}
 
 
 
