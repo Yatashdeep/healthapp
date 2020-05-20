@@ -23,6 +23,11 @@ const profileSchema=mongoose.Schema({
     Additional_notes:{type:String,required:false,minlength:0,maxlength:1015,trim:true},
     Primary_physician:{type:String,required:false,minlength:0,maxlength:105,trim:true},
     Additional_contacts:{type:String,required:false,minlength:0,maxlength:105,trim:true},
+       create_date:{
+        type:Date,
+        default: Date.now
+    },
+    add_contact:[{phone_number:String,name:String}]
 
 
 
