@@ -25,7 +25,8 @@ console.log('data',data)
 if(data)
 {
 return res.status(200).json({
-   message:'Email-Id already Exist' 
+   message:'Email-Id already Exist' ,
+    status:0
 });
 }
 else
@@ -60,12 +61,14 @@ else
     profile_user.save().then(result=>{
         res.status(200).json({
             message:'User Created',
-            result:result
+            result:result,
+            status:1
         });
     }).catch(err=>{
         console.log(err);
         res.status(500).json({
-            error:err
+            error:err,
+            status:0
              });
     })
 }
