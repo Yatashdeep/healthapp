@@ -24,10 +24,26 @@ profile.findOne({Email:req.body.Email})
 console.log('data',data)
 if(data)
 {
-return res.status(200).json({
-   message:'Email-Id already Exist' ,
-    status:0
-});
+profile.findOne({_id:data._id}).exec().then(doc=>{
+    doc.Email=data.Email
+    doc.zip_code=data.zip_code
+ 
+    doc.Date_of_birth=data.Date_of_birth,
+    doc.Sex=data.Sex,
+ 
+    doc.Covid_tested=data.Covid_tested,
+  
+   doc.save().then(
+       (result)=>{
+         
+               return res.status(200).json({ message:"Your profile updated successfully",getdata:result,status:1 });
+     
+       }
+   ).catch(err=>{
+       return res.status(200).json({ message:"Your profile updated successfully.",getdata:err,status:0 });
+   })
+
+})
 }
 else
 {
