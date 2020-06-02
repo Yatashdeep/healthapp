@@ -36,11 +36,11 @@ profile.findOne({_id:data._id}).exec().then(doc=>{
    doc.save().then(
        (result)=>{
          
-               return res.status(200).json({ message:"Your profile updated successfully",getdata:result,status:1 });
+               return res.status(200).json({ message:"Your profile updated successfully",result:result,status:1 });
      
        }
    ).catch(err=>{
-       return res.status(200).json({ message:"Your profile updated successfully.",getdata:err,status:0 });
+       return res.status(200).json({ message:"Your profile updated successfully.",result:err,status:0 });
    })
 
 })
